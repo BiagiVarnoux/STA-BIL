@@ -8,11 +8,12 @@ import { buildWhatsAppDirectURL } from '@/lib/whatsapp';
 import CartIcon from '@/components/cart/CartIcon';
 
 const navLinks = [
-  { href: '/catalogo',           label: 'Productos' },
-  { href: '/categorias/auto-moto',  label: 'Auto & Moto' },
-  { href: '/categorias/diesel',     label: 'Diésel' },
-  { href: '/categorias/marina',     label: 'Marina' },
-  { href: '/#como-pedir',        label: 'Cómo pedir' },
+  { href: '/catalogo',                   label: 'Productos' },
+  { href: '/categorias/auto-moto',       label: 'Auto & Moto' },
+  { href: '/categorias/diesel',          label: 'Diésel' },
+  { href: '/categorias/marina',          label: 'Marina' },
+  { href: '/categorias/equipos-jardin',  label: 'Exterior' },
+  { href: '/#como-pedir',                label: 'Cómo pedir' },
 ];
 
 export default function Header() {
@@ -43,7 +44,7 @@ export default function Header() {
               alt="STA-BIL"
               fill
               className="object-contain"
-              style={{ filter: 'brightness(0)' }}
+              style={{ filter: 'drop-shadow(0 0 3px rgba(0,0,0,0.7)) drop-shadow(0 0 1px rgba(0,0,0,0.9))' }}
               priority
             />
           </div>
@@ -102,7 +103,7 @@ export default function Header() {
                 width={80}
                 height={34}
                 className="object-contain"
-                style={{ filter: 'brightness(0)' }}
+                style={{ filter: 'drop-shadow(0 0 3px rgba(0,0,0,0.7)) drop-shadow(0 0 1px rgba(0,0,0,0.9))' }}
               />
               <button
                 onClick={() => setMenuOpen(false)}
