@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const FALLBACK = [
-  '🚀 Envío a todo Bolivia | Consulta disponibilidad por WhatsApp',
-  '✅ Etiquetas 100% compatibles con impresoras Brother QL',
-  '📦 Vendemos por unidad — sin mínimo de compra',
+  '🇧🇴 Distribuidor Oficial STA-BIL en Bolivia — Envíos a todo el país',
+  '🏆 El estabilizador de combustible #1 de Estados Unidos',
+  '💬 Pedidos y consultas por WhatsApp — Respondemos al instante',
 ];
 
 export default function AnnouncementBar() {

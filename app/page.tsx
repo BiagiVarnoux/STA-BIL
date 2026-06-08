@@ -7,7 +7,12 @@ import HowToOrder from '@/components/home/HowToOrder';
 export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
-  const products = await getFeaturedProducts();
+  let products = [];
+  try {
+    products = await getFeaturedProducts();
+  } catch {
+    // DB unavailable — page still renders with hero/trust/howto
+  }
 
   return (
     <>
