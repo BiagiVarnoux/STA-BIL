@@ -1,6 +1,6 @@
 import { db } from './db';
 import { products, productImages } from './db/schema';
-import { eq, asc } from 'drizzle-orm';
+import { eq, asc, and } from 'drizzle-orm';
 import type { Product, ProductImage } from './db/schema';
 
 export type ProductWithImages = Product & { images: ProductImage[] };
@@ -47,6 +47,15 @@ export async function getProductById(id: number): Promise<ProductWithImages | nu
 
 export async function getAllProductsAdmin(): Promise<ProductWithImages[]> {
   const rows = await db.select().from(products).orderBy(asc(products.sortOrder));
+  return attachImages(rows);
+}
+
+export async function getProductsByCategory(category: string): Promise<ProductWithImages[]> {
+  const rows = await db
+    .select()
+    .from(products)
+    .where(and(eq(products.isActive, true), eq(products.labelType, category)))
+    .orderBy(asc(products.sortOrder));
   return attachImages(rows);
 }
 

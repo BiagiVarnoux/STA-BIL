@@ -64,17 +64,16 @@ export default function Hero() {
           <span className="block w-10 h-px bg-[#C8281E]" />
         </div>
 
-        {/* Brand logo */}
-        <div className="bg-[#111111] rounded-xl px-6 py-3 inline-block">
-          <Image
-            src="/STA-BIL LOGO.png"
-            alt="STA-BIL"
-            width={200}
-            height={68}
-            className="object-contain"
-            priority
-          />
-        </div>
+        {/* Brand logo — filter inverts blanco→negro para legibilidad sobre fondo blanco */}
+        <Image
+          src="/STA-BIL LOGO.png"
+          alt="STA-BIL"
+          width={200}
+          height={68}
+          className="object-contain"
+          style={{ filter: 'brightness(0)' }}
+          priority
+        />
 
         {/* Mission headline */}
         <h1

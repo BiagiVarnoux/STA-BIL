@@ -188,6 +188,44 @@ export default function EditProductForm({ product }: { product: ProductWithImage
           <input type="text" value={form.mainUse} onChange={(e) => set('mainUse', e.target.value)}
             className={inputCls} required />
         </Field>
+
+        {/* ── Categoría ── */}
+        <div className="pt-2 border-t border-gray-100">
+          <Field
+            label="Categoría de producto"
+            hint="Define en qué sección de la tienda aparece y a qué página de categoría pertenece."
+          >
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-1">
+              {([
+                { value: 'Gasolina', label: 'Auto & Moto',          icon: '🚗', color: '#C8281E' },
+                { value: 'Diesel',   label: 'Motor Diésel',         icon: '🛢️', color: '#374151' },
+                { value: 'Marino',   label: 'Embarcación Marina',   icon: '⚓', color: '#1D4ED8' },
+                { value: 'Exterior', label: 'Equipos & Jardín',     icon: '🌿', color: '#15803D' },
+              ] as const).map((cat) => {
+                const active = form.labelType === cat.value;
+                return (
+                  <button
+                    key={cat.value}
+                    type="button"
+                    onClick={() => set('labelType', cat.value)}
+                    className={`flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 text-center transition-all ${
+                      active ? 'shadow-sm' : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                    style={active ? { borderColor: cat.color, backgroundColor: `${cat.color}0D` } : {}}
+                  >
+                    <span className="text-xl">{cat.icon}</span>
+                    <span
+                      className="text-xs font-semibold leading-tight"
+                      style={{ color: active ? cat.color : '#6B7280' }}
+                    >
+                      {cat.label}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </Field>
+        </div>
       </div>
     ),
 
