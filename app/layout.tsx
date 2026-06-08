@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className="antialiased flex flex-col min-h-screen bg-[#0D0D0D] text-white">
+      <body className="antialiased flex flex-col min-h-screen bg-white text-[#111111]">
         <CartProvider>
           <AnnouncementBar />
           <Header />

@@ -20,12 +20,18 @@ export default function ProductCard({ product, showBadge = false, categoryColor 
     : null;
 
   return (
-    <div className="group bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl overflow-hidden hover:border-[#3A3A3A] hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50 transition-all duration-200 flex flex-col">
+    <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col shadow-sm">
       {/* Image area */}
-      <div className="relative h-48 bg-[#111111]">
+      <div className="relative h-48 bg-gray-50">
+        {/* Top accent line */}
+        <div
+          className="absolute top-0 left-0 right-0 h-0.5 z-10"
+          style={{ backgroundColor: categoryColor }}
+        />
+
         {showBadge && (
           <span
-            className="absolute top-3 left-3 z-10 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow"
+            className="absolute top-4 left-3 z-10 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm"
             style={{ backgroundColor: categoryColor }}
           >
             Más vendido
@@ -42,7 +48,7 @@ export default function ProductCard({ product, showBadge = false, categoryColor 
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-gray-600">
+            <div className="w-full h-full flex items-center justify-center text-gray-300">
               <span className="text-4xl">🔧</span>
             </div>
           )}
@@ -55,33 +61,33 @@ export default function ProductCard({ product, showBadge = false, categoryColor 
         <div className="flex items-center justify-between">
           <span
             className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
-            style={{ color: categoryColor, backgroundColor: `${categoryColor}15` }}
+            style={{ color: categoryColor, backgroundColor: `${categoryColor}12` }}
           >
             {product.labelType}
           </span>
-          <span className="text-[10px] text-gray-600 font-mono">SKU {product.model}</span>
+          <span className="text-[10px] text-gray-400 font-mono">SKU {product.model}</span>
         </div>
 
         {/* Name */}
         <Link href={`/productos/${product.slug}`}>
-          <h3 className="font-semibold text-white hover:text-[#C8281E] transition-colors line-clamp-2 text-sm leading-snug">
+          <h3 className="font-semibold text-[#111111] hover:text-[#C8281E] transition-colors line-clamp-2 text-sm leading-snug">
             {product.name}
           </h3>
         </Link>
 
         {/* Short desc */}
         {product.mainUse && (
-          <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed">{product.mainUse}</p>
+          <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed">{product.mainUse}</p>
         )}
 
         {/* Price */}
         <div className="mt-auto">
           {product.priceBob ? (
-            <p className="font-black tracking-tight font-black text-2xl text-white">
+            <p className="font-black text-2xl text-[#111111]">
               Bs. {formatBob(product.priceBob)}
             </p>
           ) : (
-            <p className="text-sm text-gray-500 italic">Consultar precio</p>
+            <p className="text-sm text-gray-400 italic">Consultar precio</p>
           )}
         </div>
 
@@ -98,7 +104,7 @@ export default function ProductCard({ product, showBadge = false, categoryColor 
           </a>
           <Link
             href={`/productos/${product.slug}`}
-            className="flex items-center justify-center gap-1 border border-[#2A2A2A] text-gray-400 font-medium py-2 px-4 rounded-lg hover:border-[#C8281E] hover:text-[#C8281E] transition-colors text-sm"
+            className="flex items-center justify-center gap-1 border border-gray-200 text-gray-500 font-medium py-2 px-4 rounded-lg hover:border-[#C8281E] hover:text-[#C8281E] transition-colors text-sm"
           >
             Ver detalles
           </Link>

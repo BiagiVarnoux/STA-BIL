@@ -12,7 +12,7 @@ export default function FeaturedProducts({ products }: Props) {
   const featured = products.slice(0, 4);
 
   return (
-    <section className="py-20 px-4 bg-[#111111] border-t border-[#2A2A2A]">
+    <section className="py-20 px-4 bg-[#F8F8F8] border-y border-gray-200">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -22,7 +22,7 @@ export default function FeaturedProducts({ products }: Props) {
               Lo más popular
             </p>
             <h2
-              className="font-black uppercase text-white leading-tight"
+              className="font-black uppercase text-[#111111] leading-tight"
               style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
             >
               Productos Destacados
@@ -30,10 +30,9 @@ export default function FeaturedProducts({ products }: Props) {
           </div>
           <Link
             href="/catalogo"
-            className="hidden sm:inline-flex items-center gap-2 text-gray-500 hover:text-white text-sm transition-colors uppercase tracking-wide font-medium"
+            className="hidden sm:inline-flex items-center gap-2 text-gray-400 hover:text-[#C8281E] text-sm transition-colors uppercase tracking-wide font-medium"
           >
-            Ver los 22 productos
-            <span>→</span>
+            Ver los 22 productos →
           </Link>
         </div>
 
@@ -62,7 +61,7 @@ export default function FeaturedProducts({ products }: Props) {
         <div className="mt-12 text-center hidden sm:block">
           <Link
             href="/catalogo"
-            className="inline-flex items-center gap-3 border border-[#2A2A2A] text-gray-400 hover:border-[#C8281E] hover:text-white font-semibold px-8 py-3 rounded-lg transition-all text-sm uppercase tracking-widest"
+            className="inline-flex items-center gap-3 border border-gray-300 text-gray-500 hover:border-[#C8281E] hover:text-[#C8281E] font-semibold px-8 py-3 rounded-lg transition-all text-sm uppercase tracking-widest"
           >
             Ver los 22 productos del catálogo completo →
           </Link>
